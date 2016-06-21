@@ -1,0 +1,6 @@
+@import "mixins/__unified-checkbox-style";
+
+@import "__config";
+@import "__core";
+
+@include core_form_unified-checkbox;

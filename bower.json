@@ -1,0 +1,17 @@
+{
+  "name": "tipi.component.form.unified-checkbox",
+  "homepage": "https://github.com/toolbarthomas/tipi.base.fluid",
+  "authors": [
+    "Thomas van der Velde <contact@toolbarthomas.net>"
+  ],
+  "description": "Javascript component for styling checkboxes",
+  "keywords": [
+    "toolbarthomas",
+    "modular",
+    "tipi",
+    "form",
+    "checkbox"
+  ],
+  "license": "MIT",
+  "main": "_tipi.component.form.unified-checkbox.scss"
+}

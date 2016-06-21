@@ -1,0 +1,21 @@
+$unified-checkbox-margin-bottom: 			12px !default;
+$unified-checkbox-gutter: 					12px !default;
+
+$unified-checkbox-label-font-weight: 		inherit !default;
+
+$unified-checkbox-control-size: 			26px !default;
+
+$unified-checkbox-control-glyph-opacity: 	0.6 !default;
+$unified-checkbox-control-glyph-width: 		8px !default;
+$unified-checkbox-control-glyph-height:		12px !default;
+$unified-checkbox-control-glyph-size:		2px !default;
+
+$unified-checkbox-transitions: true !default;
+
+@if variable-exists(form-group-border-selectors) {
+	$form-group-border-selectors: append($form-group-border-selectors, '.checbox.__checbox--ready .checbox-icon');
+}
+
+@if variable-exists(form-group-background-selectors) {
+	$form-group-background-selectors: append($form-group-background-selectors, '.checkbox.__checkbox--ready .checkbox-icon');
+}
