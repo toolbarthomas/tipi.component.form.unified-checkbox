@@ -41,7 +41,7 @@
 
 		@if $unified-checkbox-transitions == true {
 			@include transition(
-				(color $transition-fast ease-out 0s)
+				(color $unified-checkbox-transition-speed $unified-checkbox-transition-timing 0s)
 			);
 		}
 	}
