@@ -18,6 +18,7 @@
 	$box-shadow--focus: false,
 	$box-shadow--checked: false,
 	$glyph-color: false,
+	$glyph-color--hover: false,
 	$glyph-color--focus: false,
 	$glyph-color--checked: false,
 	$glyph-border-radius: false
@@ -51,19 +52,25 @@
 					}
 
 					.checkbox-control-glyph {
-						@if $glyph-color != false {
-							&:before,
-							&:after {
+						&:before,
+						&:after {
+							@if $glyph-color != false {
 								background-color: $glyph-color;
+							}
 
-								@if $glyph-border-radius != false {
-									border-radius: $glyph-border-radius;
-								}
+							@if $glyph-border-radius != false {
+								border-radius: $glyph-border-radius;
 							}
 						}
 					}
 
 					.no-touchevents &:hover {
+						.checkbox-label {
+							@if $color--hover != false {
+								color: $color--hover;
+							}
+						}
+
 						.checkbox-control {
 							@if $background-color--hover != false {
 								background-color: $background-color--hover;
@@ -78,9 +85,12 @@
 							}
 						}
 
-						.checkbox-label {
-							@if $color--hover != false {
-								color: $color--hover;
+						.checkbox-control-glyph {
+							&:before,
+							&:after {
+								@if $glyph-color--hover != false {
+									background-color: $glyph-color--hover;
+								}
 							}
 						}
 					}
