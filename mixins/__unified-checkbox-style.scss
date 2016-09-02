@@ -1,16 +1,20 @@
 @mixin unified-checkbox-style(
 	$selector: null,
 	$background-color: false,
+	$background-color--hover: false,
 	$background-color--focus: false,
 	$background-color--checked: false,
 	$color: false,
+	$color--hover: false,
 	$color--focus: false,
 	$color--checked: false,
 	$border: false,
+	$border-color--hover: false,
 	$border-color--focus: false,
 	$border-color--checked: false,
 	$border-radius: false,
 	$box-shadow: false,
+	$box-shadow--hover: false,
 	$box-shadow--focus: false,
 	$box-shadow--checked: false,
 	$glyph-color: false,
@@ -58,64 +62,92 @@
 							}
 						}
 					}
+
+					.no-touchevents &:hover {
+						.checkbox-control {
+							@if $background-color--hover != false {
+								background-color: $background-color--hover;
+							}
+
+							@if $border-color--hover != false {
+								border: $border-color--hover;
+							}
+
+							@if $box-shadow--hover != false {
+								box-shadow: $box-shadow--hover;
+							}
+						}
+
+						.checkbox-label {
+							@if $color--hover != false {
+								color: $color--hover;
+							}
+						}
+					}
 				}
 
 				&.__checkbox--focus {
-					.checkbox-label {
-						@if $color--focus != false {
-							color: $color--focus;
-						}
-					}
-
-					.checkbox-control {
-						@if $background-color--focus != false {
-							background-color: $background-color--focus;
+					&,
+					.no-touchevents &:hover {
+						.checkbox-label {
+							@if $color--focus != false {
+								color: $color--focus;
+							}
 						}
 
-						@if $border-color--focus != false {
-							border-color: $border-color--focus;
+						.checkbox-control {
+							@if $background-color--focus != false {
+								background-color: $background-color--focus;
+							}
+
+							@if $border-color--focus != false {
+								border-color: $border-color--focus;
+							}
+
+							@if $box-shadow--focus != false {
+								box-shadow: $box-shadow--focus;
+							}
 						}
 
-						@if $box-shadow--focus != false {
-							box-shadow: $box-shadow--focus;
-						}
-					}
-
-					.checkbox-control-glyph {
-						@if $glyph-color--focus != false {
-							&:before,
-							&:after {
-								background-color: $glyph-color--focus;
+						.checkbox-control-glyph {
+							@if $glyph-color--focus != false {
+								&:before,
+								&:after {
+									background-color: $glyph-color--focus;
+								}
 							}
 						}
 					}
 				}
 
 				&.__checkbox--checked {
-					.checkbox-label {
-						@if $color--checked != false {
-							color: $color--checked !important;
+					&,
+					.no-touchevents &:hover {
+						.checkbox-label {
+							@if $color--checked != false {
+								color: $color--checked !important;
+							}
 						}
-					}
-					.checkbox-control {
-						@if $background-color--checked != false {
-							background-color: $background-color--checked !important;
+						.checkbox-control {
+							@if $background-color--checked != false {
+								background-color: $background-color--checked !important;
+							}
+
+							@if $border-color--checked != false {
+								border-color: $border-color--checked !important;
+							}
+
+							@if $box-shadow--checked != false {
+								box-shadow: $box-shadow--checked;
+							}
 						}
 
-						@if $border-color--checked != false {
-							border-color: $border-color--checked !important;
-						}
-
-						@if $box-shadow--checked != false {
-							box-shadow: $box-shadow--checked;
-						}
-					}
-
-					.checkbox-control-glyph {
-						@if $glyph-color--checked != false {
-							&:before,
-							&:after {
-								background-color: $glyph-color--checked;
+						.checkbox-control-glyph {
+							@if $glyph-color--checked != false {
+								&:before,
+								&:after {
+									background-color: $glyph-color--checked;
+								}
 							}
 						}
 					}

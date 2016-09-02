@@ -41,7 +41,7 @@
 
 		@if $unified-checkbox-transitions == true {
 			@include transition(
-				(color $unified-checkbox-transition-speed $unified-checkbox-transition-timing 0s)
+				(color $unified-checkbox-transition-speed $unified-checkbox-transition-timing $unified-checkbox-transition-delay)
 			);
 		}
 	}
@@ -68,6 +68,14 @@
 	.checkbox-control {
 		display: inline-block;
 		vertical-align: middle;
+
+		@if $unified-checkbox-transitions == true {
+			@include transition(
+				(background-color $unified-checkbox-transition-speed $unified-checkbox-transition-timing $unified-checkbox-transition-delay),
+				(border-color $unified-checkbox-transition-speed $unified-checkbox-transition-timing $unified-checkbox-transition-delay),
+				(box-shadow $unified-checkbox-transition-speed $unified-checkbox-transition-timing $unified-checkbox-transition-delay)
+			);
+		}
 
 		.__checkbox--ready & {
 			width: $unified-checkbox-control-size;
@@ -105,9 +113,9 @@
 
 		@if $unified-checkbox-transitions == true {
 			@include transition(
-				(opacity $transition-lightning ease-out 0s),
-				(transform $transition-lightning ease-out 0s),
-				(margin $transition-lightning ease-out 0s)
+				(opacity $unified-checkbox-transition-speed $unified-checkbox-transition-timing $unified-checkbox-transition-delay),
+				(transform $unified-checkbox-transition-speed $unified-checkbox-transition-timing $unified-checkbox-transition-delay),
+				(margin $unified-checkbox-transition-speed $unified-checkbox-transition-timing $unified-checkbox-transition-delay)
 			);
 		}
 
@@ -121,7 +129,7 @@
 
 			@if $unified-checkbox-transitions == true {
 				@include transition(
-					(background $transition-lightning ease-out 0s)
+					(background $unified-checkbox-transition-speed $unified-checkbox-transition-timing $unified-checkbox-transition-delay)
 				);
 			}
 		}
