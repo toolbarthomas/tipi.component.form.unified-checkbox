@@ -15,31 +15,18 @@ $unified-checkbox-transition-speed:							200ms !default;
 $unified-checkbox-transition-timing:						ease-in-out !default;
 $unified-checkbox-transition-delay:							0s !default;
 
+$unified-checkbox-border-selectors:							('.checkbox.__checkbox--ready .checkbox-control') !default;
+$unified-checkbox-background-selectors:						('.checkbox.__checkbox--ready .checkbox-control') !default;
+$unified-checkbox-font-selectors:							('.checkbox.__checkbox--ready .checkbox-label') !default;
 
-$unified-checkbox-validation-enabled-for-font-color: 		true !default;
-$unified-checkbox-validation-enabled-for-border-color: 		true !default;
-$unified-checkbox-validation-enabled-for-background-color: 	true !default;
-
-@if $unified-checkbox-validation-enabled-for-font-color == true {
-	@if variable-exists(form-validation-font-color-selectors) == false {
-		$form-validation-font-color-selectors: () !global;
-	}
-
-	$form-validation-font-color-selectors: append($form-validation-font-color-selectors, ('.checkbox.__checkbox--ready .checkbox-label'), comma);
+@if variable-exists(form-validation-border-selectors) {
+	$form-validation-border-selectors: append($form-validation-border-selectors, $unified-checkbox-border-selectors, 'comma');
 }
 
-@if $unified-checkbox-validation-enabled-for-border-color == true {
-	@if variable-exists(form-validation-border-color-selectors) == false {
-		$form-validation-border-color-selectors: () !global;
-	}
-
-	$form-validation-border-color-selectors: append($form-validation-border-color-selectors, ('.checkbox.__checkbox--ready .checkbox-control'), comma);
+@if variable-exists(form-validation-background-selectors) {
+	$form-validation-background-selectors: append($form-validation-background-selectors, $unified-checkbox-background-selectors, 'comma');
 }
 
-@if $unified-checkbox-validation-enabled-for-background-color == true {
-	@if variable-exists(form-validation-background-color-selectors) == false {
-		$form-validation-background-color-selectors: () !global;
-	}
-
-	$form-validation-background-color-selectors: append($form-validation-border-color-selectors, ('.checkbox.__checkbox--ready .checkbox-control'), comma);
+@if variable-exists(form-validation-font-selectors) {
+	$form-validation-font-selectors: append($form-validation-font-selectors, $unified-checkbox-font-selectors, 'comma');
 }
