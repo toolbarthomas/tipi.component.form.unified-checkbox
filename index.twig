@@ -1,0 +1,53 @@
+{% extends "layouts/base.twig" %} {% block content %}
+
+<section id="unified-checkbox" class="fluid">
+	<form action="#" method="post">
+
+
+		{% set checkboxes = [
+			{
+				title: 'Fruit',
+				attributes: {
+					value: 0,
+					checked: true,
+					name: 'checkbox-fruit',
+					id: 'checkbox-fruit'
+				}
+			},
+			{
+				title: 'Vegetables',
+				attributes: {
+					value: 1,
+					checked: false,
+					name: 'checkbox-vegetables',
+					id: 'checkbox-vegetables'
+				}
+			}
+		] %}
+
+		{% for checkbox in checkboxes %}
+			<div class="checkbox">
+				<label class="checkbox-label">
+					<span class="checkbox-aside">
+						<span class="checkbox-control">
+							<input type="checkbox"
+								{% for key, value in checkbox.attributes %}
+									{% if (value == true) %}
+										{{- ' ' ~ key -}}
+									{% elseif (value is not empty ) %}
+										{{- (' ' ~ key ~ '="' ~ value ~ '"') -}}
+									{% endif %}
+								{% endfor %}
+							/>
+							<span class="checkbox-control-glyph"></span>
+						</span>
+					</span>
+					<span class="checkbox-body">
+						{{ checkbox.title }}
+					</span>
+				</label>
+			</div>
+		{% endfor %}
+	</form>
+</section>
+{% endblock %}
